@@ -68,23 +68,23 @@ export class ExaminationDetailsPage implements OnInit {
     this.plaform.ready().then(() => {
 
       const fileTransfer: FileTransferObject = this.transfer.create();
-      this.localNotifications.schedule({
-        id: 1,
-        text: 'Single ILocalNotification',
-        sound: this.plaform.is('android')? 'file://sound.mp3': 'file://beep.caf',
 
-      });
-      
-
-      fileTransfer.download(newurl, this.path + "File.jpg").then(() => {
-          this.localNotifications.schedule({
-            id: 1,
-            title: 'My first notification',
-            text: 'path is: '+this.path,
+      fileTransfer.download(newurl, this.path + "File.pdf").then(() => {
+        this.localNotifications.schedule({
+          id: 1,
+          title: 'File DOwnloaded',
+          text: 'Datesheet downloaded',
         });
 
+        this.localNotifications.on('click').subscribe(() => function (n) {
+          alert("Hello");
+        });
+        // this.localNotifications.on('click', function(n){
+        //   alert("file opener");
+        // });
       });
 
     });
+
   }
 }
