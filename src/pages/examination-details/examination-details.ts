@@ -76,8 +76,9 @@ export class ExaminationDetailsPage implements OnInit {
       });
       
 
-      fileTransfer.download(newurl, this.path + "File.jpg").then((easy) => {
+      fileTransfer.download(newurl, this.path + "File.jpg").then(() => {
           this.localNotifications.schedule({
+            id: 1,
             title: 'My first notification',
             text: 'path is: '+this.path,
         });
