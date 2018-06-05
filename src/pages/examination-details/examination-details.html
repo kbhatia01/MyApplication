@@ -18,8 +18,10 @@
     <ion-item>
         {{details.title}}
     </ion-item>
-    <ion-item (click)="download(details.url)">
+    <ion-item>
+    <button block  class="btn btn-outline-primary" (click)="download(details.url)">
      click here to download
+    </button>
   </ion-item>
     <ion-item>
         <h3>Month:{{details.month}}   Year:{{details.year}}</h3>
