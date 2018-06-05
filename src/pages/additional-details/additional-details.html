@@ -1,0 +1,41 @@
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <button ion-button icon-left clear class="edit-button" type="submit" (click)="editProfile()">
+        <ion-icon name="create"></ion-icon>&nbsp;Edit Profile
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed> Address</ion-label>
+      <ion-input disabled type="text" value="{{this.data.current_address}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed> Gender</ion-label>
+      <ion-input disabled type="text" value="{{this.data.gender}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed> Date of Birth</ion-label>
+      <ion-input disabled type="text" value="{{this.data.date_of_birth}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Aadhar</ion-label>
+      <ion-input disabled type="number" value="{{this.data.aadhar_number}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>PAN</ion-label>
+      <ion-input disabled type="number" value="{{this.data.pan}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed> HomePhone</ion-label>
+      <ion-input disabled type="number" value="{{this.data.facebook_url}}"></ion-input>
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>

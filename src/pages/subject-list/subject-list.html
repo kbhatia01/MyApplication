@@ -1,0 +1,10 @@
+
+
+
+<ion-content padding>
+    <ion-list  *ngFor="let subject of subjects">
+        <button ion-item  (click)="subjectSelected(subject.subject_name,subject.fees,subject.pk_subject_id)">
+          {{ subject.subject_name }} 
+          </button> 
+         </ion-list>
+</ion-content>

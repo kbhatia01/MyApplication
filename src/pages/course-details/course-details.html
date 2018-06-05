@@ -1,0 +1,36 @@
+<ion-header class="page-header">
+  <ion-row>
+    <ion-col col-2 col-sm text-center>
+      <button ion-button clear menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-8 col-sm>
+      <ion-title class="page-title">EduSome</ion-title>
+    </ion-col>
+  </ion-row>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list >
+        <ion-item>{{course_title}}</ion-item>
+        {{summary}}
+        <ion-item>
+          Duration:{{week_duration}}weeks
+        </ion-item>
+        </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+
+
+</ion-header>
+
+<ion-content padding>
+  <ion-tabs class="custom-tabs" tabsPlacement="top">
+    <ion-tab [root]="tab1Root" tabTitle="Subjects" [rootParams]="SubjectListParams"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Faculty"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="Students"></ion-tab>
+  </ion-tabs>
+</ion-content>

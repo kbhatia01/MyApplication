@@ -1,0 +1,31 @@
+page-profile {
+    ion-header{
+        background: white;
+        padding:0px;
+         }
+
+ .profile-title{
+        margin-top: 10px;
+        color: rgb(5, 5, 104);
+        
+    }
+    
+    .profile-header .icon{
+        font-size: 25px;
+        
+         }
+         
+         .profile-image{
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            padding: 3px;
+            border-radius: 100%;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            margin: 0 auto;
+            width: 96px;
+            height: 96px;
+            overflow: hidden;
+          }
+        
+}

@@ -1,0 +1,34 @@
+<ion-header class="page-header">
+  <ion-row>
+    <ion-col col-2 col-sm text-center>
+      <button ion-button clear menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-8 col-sm>
+      <ion-title class="page-title">Fee Payment</ion-title>
+    </ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-row>
+      <ion-col col-6>
+      <ion-icon name="card" class="page-icons" start></ion-icon>
+    </ion-col>
+    <ion-col col-6 pull-3>
+      <button strong ion-button default="true" (click)="makePayment()" end>Make Payment</button>
+    </ion-col>
+    </ion-row>
+  </ion-item>
+  <h3>Payment History</h3>
+  <ion-list *ngFor="let payment of payments">
+    <ion-item>
+      <h2>INR&nbsp;{{payment.pay_amount}}</h2>
+      <p>Date:{{payment.display_date}}</p>
+      <ion-badge item-end>{{payment.payment_mode}}</ion-badge>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
