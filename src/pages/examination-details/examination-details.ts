@@ -72,7 +72,7 @@ export class ExaminationDetailsPage implements OnInit {
 
       fileTransfer.download(newurl, this.path + "File.jpg");
       const toast = this.toastCtrl.create({
-        message: 'User was added successfully',
+        message: 'FILE DOWNLOADED',
         duration: 3000
       });
       toast.present();
