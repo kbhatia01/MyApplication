@@ -7,6 +7,9 @@ import { Platform } from 'ionic-angular';
 import { GlobalVariable } from "../../providers/global";
 import { ToastController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { FileOpener } from '@ionic-native/file-opener';
+
+
 declare var cordova: any;
 
 /**
@@ -29,7 +32,7 @@ export class ExaminationDetailsPage implements OnInit {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private localNotifications: LocalNotifications, public toastCtrl: ToastController, private plaform: Platform, private file: File, private transfer: FileTransfer, private eduservice: EduserviceProvider, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private localNotifications: LocalNotifications,private fileOpener: FileOpener ,public toastCtrl: ToastController, private plaform: Platform, private file: File, private transfer: FileTransfer, private eduservice: EduserviceProvider, private loadingCtrl: LoadingController) {
     this.pk_datesheet_id = navParams.get('pk_datesheet_id');
     this.plaform.ready().then(() => {
       // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
@@ -76,15 +79,18 @@ export class ExaminationDetailsPage implements OnInit {
           text: 'Datesheet downloaded',
         });
 
-        this.localNotifications.on('click').subscribe(() => function (n) {
-          alert("Hello");
+        this.localNotifications.on('click').subscribe(n=> {
+        
+          this.fileOpener.open(this.path+'File.pdf', 'application/pdf')
+  .then(() => console.log('File is opened'))
+  .catch(e => console.log('Error opening file', e));
+
         });
-        // this.localNotifications.on('click', function(n){
-        //   alert("file opener");
-        // });
+     
       });
 
     });
 
-  }
+  }//download
+
 }

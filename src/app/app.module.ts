@@ -39,6 +39,8 @@ import { ExaminationListPage } from '../pages/examination-list/examination-list'
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import {File} from  '@ionic-native/file'
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { FileOpener } from '@ionic-native/file-opener';
+
 
 @NgModule({
   declarations: [
@@ -114,7 +116,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    EduserviceProvider,FileTransfer, FileTransferObject ,File,LocalNotifications
+    EduserviceProvider,FileTransfer, FileTransferObject ,File,LocalNotifications,FileOpener
     
   ]
 })
