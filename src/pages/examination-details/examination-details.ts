@@ -68,6 +68,13 @@ export class ExaminationDetailsPage implements OnInit {
     this.plaform.ready().then(() => {
 
       const fileTransfer: FileTransferObject = this.transfer.create();
+      this.localNotifications.schedule({
+        id: 1,
+        text: 'Single ILocalNotification',
+        sound: this.plaform.is('android')? 'file://sound.mp3': 'file://beep.caf',
+
+      });
+      
 
       fileTransfer.download(newurl, this.path + "File.jpg").then((easy) => {
           this.localNotifications.schedule({
