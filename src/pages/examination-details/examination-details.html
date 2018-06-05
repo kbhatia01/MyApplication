@@ -14,19 +14,18 @@
 
 
 <ion-content padding>
-  <ion-list  >
+  <ion-list>
     <ion-item>
-        {{details.title}}
+      {{details.title}}
     </ion-item>
     <ion-item>
-    <ion-item  (click)="download(details.url)">
-        <h2 color="primary"> click here to  </h2>
-    </button>
-  </ion-item>
-    <ion-item>
-        <h3>Month:{{details.month}}   Year:{{details.year}}</h3>
-    </ion-item>
-   
-</ion-list>
+      <ion-item (click)="download(details.url)">
+        <h2 color="primary"> click here to </h2>
+      </ion-item>
+      <ion-item>
+        <h3>Month:{{details.month}} Year:{{details.year}}</h3>
+      </ion-item>
+
+  </ion-list>
 
 </ion-content>
