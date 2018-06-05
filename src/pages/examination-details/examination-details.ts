@@ -5,9 +5,8 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { File } from '@ionic-native/file';
 import { Platform } from 'ionic-angular';
 import { GlobalVariable } from "../../providers/global";
-import { Cordova } from '@ionic-native/core';
 import { ToastController } from 'ionic-angular';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 declare var cordova: any;
 
 /**
@@ -30,7 +29,7 @@ export class ExaminationDetailsPage implements OnInit {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl: ToastController, private plaform: Platform, private file: File, private transfer: FileTransfer, private eduservice: EduserviceProvider, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private localNotifications: LocalNotifications, public toastCtrl: ToastController, private plaform: Platform, private file: File, private transfer: FileTransfer, private eduservice: EduserviceProvider, private loadingCtrl: LoadingController) {
     this.pk_datesheet_id = navParams.get('pk_datesheet_id');
     this.plaform.ready().then(() => {
       // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
@@ -65,18 +64,18 @@ export class ExaminationDetailsPage implements OnInit {
   download(url: string) {
     let newurl = GlobalVariable.Downloadurl + url;
     console.log(newurl);
-  
+
     this.plaform.ready().then(() => {
 
       const fileTransfer: FileTransferObject = this.transfer.create();
 
-      fileTransfer.download(newurl, this.path + "File.jpg").then((easy)=>{
-        cordova.plugins.notification.local.schedule({
-          title: 'file downloaded',
-          text: 'go to: '+this.path,
-          foreground: true
+      fileTransfer.download(newurl, this.path + "File.jpg").then((easy) => {
+          this.localNotifications.schedule({
+            title: 'My first notification',
+            text: 'path is: '+this.path,
+        });
+
       });
-      })
 
     });
   }
