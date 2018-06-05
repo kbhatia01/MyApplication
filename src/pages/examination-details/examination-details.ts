@@ -6,6 +6,7 @@ import { File } from '@ionic-native/file';
 import { Platform } from 'ionic-angular';
 import { GlobalVariable } from "../../providers/global";
 import { Cordova } from '@ionic-native/core';
+import { ToastController } from 'ionic-angular';
 
 declare var cordova: any;
 
@@ -29,7 +30,7 @@ export class ExaminationDetailsPage implements OnInit {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private plaform: Platform, private file: File, private transfer: FileTransfer, private eduservice: EduserviceProvider, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl: ToastController, private plaform: Platform, private file: File, private transfer: FileTransfer, private eduservice: EduserviceProvider, private loadingCtrl: LoadingController) {
     this.pk_datesheet_id = navParams.get('pk_datesheet_id');
     this.plaform.ready().then(() => {
       // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
@@ -64,11 +65,17 @@ export class ExaminationDetailsPage implements OnInit {
   download(url: string) {
     let newurl = GlobalVariable.Downloadurl + url;
     console.log(newurl);
+  
     this.plaform.ready().then(() => {
 
       const fileTransfer: FileTransferObject = this.transfer.create();
 
       fileTransfer.download(newurl, this.path + "File.jpg");
+      const toast = this.toastCtrl.create({
+        message: 'User was added successfully',
+        duration: 3000
+      });
+      toast.present();
 
     });
   }
