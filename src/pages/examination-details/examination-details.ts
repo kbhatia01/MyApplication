@@ -70,12 +70,13 @@ export class ExaminationDetailsPage implements OnInit {
 
       const fileTransfer: FileTransferObject = this.transfer.create();
 
-      fileTransfer.download(newurl, this.path + "File.jpg");
-      const toast = this.toastCtrl.create({
-        message: 'FILE DOWNLOADED',
-        duration: 3000
+      fileTransfer.download(newurl, this.path + "File.jpg").then((easy)=>{
+        cordova.plugins.notification.local.schedule({
+          title: 'file downloaded',
+          text: 'go to: '+this.path,
+          foreground: true
       });
-      toast.present();
+      })
 
     });
   }
