@@ -1,0 +1,45 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <ion-title>Faculty Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+      <ion-card>
+          <img class="profile-image" src="assets/imgs/person.png" alt="No Profile Image" width="300"
+          />
+          <div class="card-title" text-center>{{name}}</div>
+          <div class="card-subtitle" text-center></div>
+       </ion-card>
+      
+      
+       <ion-list>
+          <ion-item>
+            <ion-label fixed>Name</ion-label>
+            <ion-input disabled type="text" value="{{faculties.name}}"></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label fixed>Title</ion-label>
+            <ion-input disabled type="text" value="{{faculties.title}}" ></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label fixed>Email</ion-label>
+            <ion-input disabled type="text" value="{{faculties.contact_email}}"></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label fixed>Contact</ion-label>
+            <ion-input disabled type="text" value="{{faculties.contact_phone}}"></ion-input>
+          </ion-item>
+
+          <div>{{faculties.summary}}</div>
+         
+
+      
+
+</ion-list>      
+</ion-content>

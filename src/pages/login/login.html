@@ -1,0 +1,43 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title text-center>EduSome</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+      <img src="assets/imgs/Capture.png" width="200" class="logo"/>
+  </ion-item>
+   <ion-list class="login-field">
+    <form [formGroup]="loginform" (ngSubmit)="onSubmit(loginform.value)" novalidate>
+      <ion-item class="form-group">
+        <ion-label floating>Email</ion-label>
+        <ion-input #refName class="form-control" formControlName="username" type="text"></ion-input>
+      </ion-item>
+      <div *ngIf="loginform.get('username').hasError('required') && loginform.get('username').touched" 
+      class="alert">
+          Email is required !!
+        </div>
+        <div *ngIf="loginform.get('username').hasError('username') && loginform.get('username').dirty" class="alert">
+          Please Enter Valid Email !!
+          </div>
+       
+      <ion-item class="form-group">
+        <ion-label floating>Password</ion-label>
+        <ion-input #refName class="form-control" formControlName="password" type="password"></ion-input>
+      </ion-item>
+      <div *ngIf="loginform.get('password').hasError('required') && loginform.get('password').touched"
+      class="alert">
+          Password is required !!
+        </div>
+      <button ion-button full style="text-transform:capitalize;margin-top:20px;" >Login</button>
+    </form>
+  </ion-list>
+  <div padding>
+   <a class="forgot-btn" (click)="forgotpassword()" style="float:center">Forgot Password?</a>
+  </div>
+</ion-content>

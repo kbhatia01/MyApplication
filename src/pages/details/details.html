@@ -1,0 +1,52 @@
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-row class="row">
+        <ion-col>
+          <button ion-button icon-left clear [hidden]="!edit" class="edit-button" type="submit" (click)="editProfile()">
+            <ion-icon name="create"></ion-icon>&nbsp;Edit Profile
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear class="edit-button" [hidden]="edit" type="submit" (click)="submitProfile(editForm.value)">
+            <ion-icon name="create"></ion-icon>&nbsp;Submit Profile
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear class="edit-button" [hidden]="edit" type="submit" (click)="ngOnInit()">
+            <ion-icon name="create"></ion-icon>&nbsp;cancel
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <form [formGroup]="editForm" (ngSubmit)="submitProfile(editForm.value)">
+      <ion-item>
+        <ion-label fixed>Name</ion-label>
+        <ion-input [readonly]="edit" type="text" class="form-control" formControlName="name" text-capitalize></ion-input>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Student Title</ion-label>
+        <ion-input [readonly]="edit" class="form-control" formControlName="title" type="text" text-capitalize></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input [readonly]="edit" type="text" class="form-control" formControlName="login_email" text-capitalize></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Contact</ion-label>
+        <ion-input [readonly]="edit" type="number" class="form-control" formControlName="cellphone" text-capitalize></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Roll Number</ion-label>
+        <ion-input [readonly]="edit" type="number" class="form-control" formControlName="roll_number" text-capitalize></ion-input>
+      </ion-item>
+
+    </form>
+  </ion-list>
+
+</ion-content>

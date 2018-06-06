@@ -1,0 +1,43 @@
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-row class="row">
+        <ion-col>
+          <button class="btn btn-primary" ion-button icon-left clear [hidden]="!edit" class="edit-button" type="submit" (click)="editProfile()">
+            <ion-icon name="create"></ion-icon>&nbsp;Edit Profile
+          </button>
+        <button class="btn btn-primary" ion-button icon-left clear class="edit-button" [hidden]="edit" type="submit" (click)="submitProfile(editForm.value)">
+            <ion-icon name="create"></ion-icon>&nbsp;Submit Profile
+          </button>
+          <button class="btn btn-primary" ion-button icon-left clear class="edit-button" [hidden]="edit" type="submit" (click)="ngOnInit()">
+            <ion-icon name="create"></ion-icon>&nbsp;cancel
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <form [formGroup]="editForm" (ngSubmit)="submitProfile(editForm.value)">
+      <ion-item>
+        <ion-label fixed>Facebook</ion-label>
+        <ion-input [readonly]="edit" type="text" class="form-control" formControlName="facebook_url" text-capitalize></ion-input>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Skype</ion-label>
+        <ion-input [readonly]="edit" class="form-control" formControlName="skype_username" type="text" text-capitalize></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Twitter</ion-label>
+        <ion-input [readonly]="edit" type="text" class="form-control" formControlName="twitter_handle" text-capitalize></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>LinkedIn</ion-label>
+        <ion-input [readonly]="edit" type="number" class="form-control" formControlName="linkedin_url" text-capitalize></ion-input>
+      </ion-item>
+
+    </form>
+  </ion-list>
+
+</ion-content>

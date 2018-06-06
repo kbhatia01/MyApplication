@@ -1,0 +1,22 @@
+<ion-header class="page-header">
+  <ion-row>
+      <ion-col col-2 col-sm text-center>
+        <button ion-button clear menuToggle="left">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-8 col-sm>
+        <ion-title class="page-title">DateSheet</ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-header>
+
+
+<ion-content padding>
+  <ion-list  *ngFor="let exam of exams">
+    <button ion-item  (click)="itemSelected(exam.pk_datesheet_id)">
+        <ion-icon name="paper" color="primary" item-start></ion-icon>
+      {{ exam.title}} 
+        </button> 
+     </ion-list>
+</ion-content>

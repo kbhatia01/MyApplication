@@ -1,0 +1,33 @@
+<ion-header class="profile-header">
+  <ion-row>
+    <ion-col col-2 col-sm text-center>
+      <button ion-button clear menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-8 col-sm>
+      <ion-title class="profile-title">My Profile</ion-title>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-card>
+      <img class="profile-image" src="assets/imgs/person.png" alt="No Profile Image" width="300" />
+      <ion-row>
+        <ion-col col-6 offset-5>
+      <button ion-button icon-left clear class="image-button" (click)="changeImage()">
+        <ion-icon name="camera"></ion-icon>&nbsp;Change Image&nbsp;&nbsp;</button>
+      </ion-col>
+      </ion-row>
+      </ion-card>
+  </ion-row>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-tabs class="custom-tabs" tabsPlacement="bottom">
+    <ion-tab [root]="tab1Root" tabTitle="Personal"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Social" [rootParams]="StudentParams"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="Additional" [rootParams]="StudentParams"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="Guardians"[rootParams]="StudentParams"></ion-tab>
+  </ion-tabs>
+</ion-content>

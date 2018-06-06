@@ -1,14 +1,74 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+<ion-header class="home-header">
+  <ion-row>
+    <ion-col col-2 col-sm text-center>
+      <button ion-button clear menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-8 col-sm>
+      <ion-title class="home-title">Welcome</ion-title>
+    </ion-col>
+  </ion-row>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+  <img src="assets/imgs/Capture.png" width="200" class="logo" />
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button block outline class="large-button" (click)="onView()">
+          <div>
+            <ion-icon name="notifications" class="home-icons"></ion-icon>
+            <label>Notifications</label>
+          </div>
+        </button>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button block outline class="large-button" (click)="onClick()">
+          <div>
+            <ion-icon name="book" class="home-icons"></ion-icon>
+            <label>Courses</label>
+          </div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block outline class="large-button" (click)="onOpen()">
+          <div>
+            <ion-icon name="calendar" class="home-icons"></ion-icon>
+            <label>Datesheet</label>
+          </div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block outline class="large-button" (click)="onLoad()">
+          <div>
+            <ion-icon name="create" class="home-icons"></ion-icon>
+            <label>Test</label>
+          </div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block outline class="large-button" (click)="payments()">
+          <div>
+            <ion-icon name="card" class="home-icons"></ion-icon>
+            <label>Payments</label>
+          </div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block outline class="large-button">
+          <div>
+            <ion-icon name="heart" class="home-icons"></ion-icon>
+            <label>Feedback</label>
+          </div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

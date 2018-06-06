@@ -1,1 +1,17 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" type="overlay" side="left" id="menu1" class="custom-menu">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title> Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+    <button ion-button full menuClose="left" class="log-out" (click)="onLogout()">Log Out</button>
+  </ion-content>
+</ion-menu>
+
+<ion-nav color="primary" #content #myNav [root]="rootPage"></ion-nav>
